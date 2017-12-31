@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>博客</title>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/bootstrap.min.js"></script>
+</head>
+<body>
+<link rel="stylesheet" href="/stylesheets/blog/index.css"/>
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+              aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">慈凯的个人网站</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="/blog">博客</a>
+        </li>
+        <li>
+          <a href="#">工具</a>
+        </li>
+        <li>
+          <a href="#">分享</a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">雅思
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="#">词汇</a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+              <a href="#">语法</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="https://github.com/cikai">做一名有理想的程序员</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main">
+  <!-- Blog List -->
+  <dl th:each="blog: ${blogs}">
+    <dt><h3><a th:href="@{/blog/post(id=${blog.id})}" th:text="${blog.title}"></a></h3></dt>
+    <dd th:text="${blog.postedAt}">...</dd>
+  </dl>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.main {
+  padding: 10px;
+}
+
+@media (min-width: 992px) {
+  .main {
+    position: absolute;
+    width: 1000px;
+    left: 50%;
+    margin-left: -500px;
+  }
+}
+
+.title {
+  padding: 10px;
+  text-align: center;
+}
+
+.title p {
+  font-size: 30px;
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.comments {
+  margin-top: 50px;
+  padding: 20px;
+  background: #DDD;
+}
+
+.comments legend {
+  width: 65px;
+  border-bottom: 3px solid #aaa;
+}
