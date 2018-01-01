@@ -8,14 +8,36 @@ a:hover {
 }
 
 .main {
-  padding: 10px;
+  margin-top: -20px;
+}
+
+.jumbotron {
+  padding: 30px;
 }
 
 @media (min-width: 992px) {
   .main {
-    position: absolute;
-    width: 1000px;
-    left: 50%;
-    margin-left: -500px;
+    margin-top: -20px;
   }
+
+  .jumbotron {
+    padding: 100px;
+  }
+}
+
+.row {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.row img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+footer {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
 }

@@ -43,3 +43,7 @@ a:hover {
   width: 65px;
   border-bottom: 3px solid #aaa;
 }
+
+.comments img {
+  max-width: 100%;
+}

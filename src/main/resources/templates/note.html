@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>首页</title>
+  <title>记事本</title>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
@@ -10,7 +10,7 @@
   <script src="/javascripts/bootstrap.min.js"></script>
 </head>
 <body>
-<link rel="stylesheet" href="/stylesheets/index.css"/>
+<link rel="stylesheet" href="/stylesheets/note.css"/>
 <nav class="navbar navbar-inverse navbar-static-top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -48,7 +48,7 @@
             </li>
           </ul>
         </li>
-        <li>
+        <li class="active">
           <a href="note">记事本</a>
         </li>
       </ul>
@@ -62,55 +62,29 @@
 </nav>
 
 <div class="main">
-  <div class="jumbotron">
-    <h1>你好，2018 ！</h1>
-    <p>忙碌中告别了2017年，整装待发，迎接崭新的2018！</p>
-    <p><a class="btn btn-primary btn-lg" href="/blog/" role="button">扬帆起航 !</a></p>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <img src="http://cikai-netdisk.b0.upaiyun.com/website/index/spring.jpg" alt="早春，南湖公园"/>
-        <div class="caption">
-          <h3>2017 ● 早春</h3>
-          <p>南湖公园</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <img src="http://cikai-netdisk.b0.upaiyun.com/website/index/summer.jpg" alt="仲夏，2017周杰伦地表最强演唱会"/>
-        <div class="caption">
-          <h3>2017 ● 仲夏</h3>
-          <p>周杰伦地表最强演唱会沈阳站</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <img src="http://cikai-netdisk.b0.upaiyun.com/website/index/autumn.jpg" alt="晚秋，辽大银杏树"/>
-        <div class="caption">
-          <h3>2017 ● 晚秋</h3>
-          <p>辽宁大学银杏树</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6 col-md-3">
-      <div class="thumbnail">
-        <img src="http://cikai-netdisk.b0.upaiyun.com/website/index/winter.jpg" alt="初冬，老友记"/>
-        <div class="caption">
-          <h3>2017 ● 初冬</h3>
-          <p>老友记，友谊长存</p>
-        </div>
-      </div>
-    </div>
+  <blockquote>
+    <p>震惊！程序猿他竟然 ！</p>
+    <footer>>> 买了三年的阿里云服务器，发誓一定要加班赚回来 ...</footer>
+  </blockquote>
+  <div class="table-responsive">
+    <!-- Aliyun ECS Fee List -->
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>编号</th>
+        <th>日期</th>
+        <th>收入</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="alifee: ${alifees}">
+        <td th:text="${alifee.id}"></td>
+        <td th:text="${alifee.date}"></td>
+        <td th:text="${alifee.fee}"></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-
-<footer>
-  <p>Copyright 2018 © 慈凯的个人网站 版权所有</p>
-</footer>
-
-<script src="/javascripts/index.js"></script>
 </body>
 </html>
