@@ -10,6 +10,13 @@ function commentSubmit() {
       comment: comment
     },
     function (data, status) {
-      alert("Data: " + data + "\nStatus: " + status);
+      if (status != 'success' || !data.status) {
+        alert('发布失败，请重试！');
+        return false;
+      }
+      alert('评论成功！');
+      $("#reader").val("");
+      $("#comment").val("");
+      window.location.reload();
     });
 }

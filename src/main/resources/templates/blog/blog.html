@@ -77,7 +77,7 @@
       <dl th:each="comment: ${comments}">
         <dd th:text="${comment.commentAt}"></dd>
         <dt th:text="${comment.reader}"></dt>
-        <dd th:text="${comment.comment}"></dd>
+        <dd th:remove="tag" th:utext="${comment.comment}"></dd>
       </dl>
     </fieldset>
     <div class="comment">
