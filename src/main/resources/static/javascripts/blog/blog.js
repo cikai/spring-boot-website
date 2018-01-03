@@ -1,7 +1,12 @@
+var simplemde = new SimpleMDE({
+  element: $("#comment")[0],
+  placeholder: "大侠请留言，支持 Markdown 语法，ECS退出全屏编辑"
+});
+
 function commentSubmit() {
   var blogId = $("#blogId").val();
   var reader = $("#reader").val();
-  var comment = $("#comment").val();
+  var comment = markdown.toHTML(simplemde.value());
 
   $.post("/blog/comment",
     {

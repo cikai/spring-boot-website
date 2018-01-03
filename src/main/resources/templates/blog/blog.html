@@ -8,6 +8,8 @@
 </head>
 <body>
 <div th:replace="navbar"></div>
+<link rel="stylesheet" href="/stylesheets/markdown.css"/>
+<link rel="stylesheet" href="/stylesheets/simplemde.min.css"/>
 <link rel="stylesheet" href="/stylesheets/blog/blog.css"/>
 <div class="main">
   <div class="bg-info title">
@@ -32,16 +34,19 @@
       </dl>
     </fieldset>
     <div class="comment">
-      <div class="input-group">
-        <div class="input-group-addon">评论</div>
-        <input id="reader" type="text" class="form-control" placeholder="大侠请在此留名"/>
-        <textarea id="comment" class="form-control" rows="3" placeholder="大侠请在此留言，支持HTML格式"></textarea>
+      <textarea name="comment" id="comment" rows="1"></textarea>
+      <div class="input-group" style="width: 200px;">
+        <input id="reader" type="text" class="form-control" placeholder="大侠请留名" />
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" onclick="commentSubmit();">发布</button>
+        </span>
       </div>
-      <button type="button" class="btn btn-link" onclick="commentSubmit();">点此发布</button>
     </div>
   </div>
 </div>
 
+<script src="/javascripts/simplemde.min.js"></script>
+<script src="/javascripts/markdown.min.js"></script>
 <script src="/javascripts/blog/blog.js"></script>
 
 </body>
