@@ -27,16 +27,17 @@
   <div class="comments">
     <fieldset>
       <legend><em>评论区</em></legend>
-      <dl th:each="comment: ${comments}">
-        <dd th:text="${comment.commentAt}"></dd>
-        <dt th:text="${comment.reader}"></dt>
-        <dd th:remove="tag" th:utext="${comment.comment}"></dd>
-      </dl>
+      <div th:each="comment: ${comments}">
+        <span th:text="${comment.reader}" style="font-weight: bold;"></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        <span th:text="${comment.commentAt}"></span>
+        <p th:remove="tag" th:utext="${comment.comment}"></p>
+      </div>
     </fieldset>
     <div class="comment">
       <textarea name="comment" id="comment" rows="1"></textarea>
       <div class="input-group" style="width: 200px;">
-        <input id="reader" type="text" class="form-control" placeholder="大侠请留名" />
+        <input id="reader" type="text" maxlength="20" class="form-control" placeholder="大侠请留名" />
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" onclick="commentSubmit();">发布</button>
         </span>
