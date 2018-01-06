@@ -12,12 +12,12 @@
 <link rel="stylesheet" href="/stylesheets/simplemde.min.css"/>
 <link rel="stylesheet" href="/stylesheets/blog/blog.css"/>
 <div class="main">
-  <div class="bg-info title">
-    <input id="blogId" type="text" th:value="${blog.id}" hidden="hidden"/>
-    <p th:text="${blog.title}"></p>
-    <footer>
+  <div class="panel panel-default" style="text-align: center">
+    <div class="panel-body" th:text="${blog.title}" style="font-size: x-large; font-weight: bold;"></div>
+    <div class="panel-footer">
       <small>发布时间：<span th:text="${blog.postedAt}"></span></small>
-    </footer>
+    </div>
+    <input id="blogId" type="text" th:value="${blog.id}" hidden="hidden"/>
   </div>
 
   <div class="content">
@@ -28,16 +28,22 @@
     <fieldset>
       <legend><em>评论区</em></legend>
       <div th:each="comment: ${comments}">
-        <span th:text="${comment.reader}" style="font-weight: bold;"></span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span th:text="${comment.commentAt}"></span>
-        <p th:remove="tag" th:utext="${comment.comment}"></p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span th:text="${comment.reader}" style="font-size: medium; font-weight: bold;"></span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span th:text="${comment.commentAt}"></span>
+          </div>
+          <div class="panel-body">
+            <p th:remove="tag" th:utext="${comment.comment}"></p>
+          </div>
+        </div>
       </div>
     </fieldset>
     <div class="comment">
       <textarea name="comment" id="comment" rows="1"></textarea>
-      <div class="input-group" style="width: 200px;">
-        <input id="reader" type="text" maxlength="20" class="form-control" placeholder="大侠请留名" />
+      <div class="input-group" style="width: 250px;">
+        <input id="reader" type="text" maxlength="20" class="form-control" placeholder="大侠请留名"/>
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" onclick="commentSubmit();">发布</button>
         </span>

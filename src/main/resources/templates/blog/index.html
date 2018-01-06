@@ -11,10 +11,16 @@
 <link rel="stylesheet" href="/stylesheets/blog/index.css"/>
 <div class="main">
   <!-- Blog List -->
-  <dl th:each="blog: ${blogs}">
-    <dt><h3><a th:href="@{/blog/post(id=${blog.id})}" th:text="${blog.title}"></a></h3></dt>
-    <dd th:text="${blog.postedAt}">...</dd>
-  </dl>
+  <div th:each="blog: ${blogs}">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title" th:text="${blog.postedAt}"></h3>
+      </div>
+      <div class="panel-body">
+        <h3><a th:href="@{/blog/post(id=${blog.id})}" th:text="${blog.title}"></a></h3>
+      </div>
+    </div>
+  </div>
 </div>
 
 </body>
